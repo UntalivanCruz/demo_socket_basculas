@@ -1,8 +1,13 @@
+const path = require('path');
 const express = require('express');
 const app = express();
 
 //settings
 app.set('port', process.env.PORT || 80);
+
+//static file
+app.use(express.static(path.join(__dirname,'public')));
+
 const server = app.listen(app.get('port'),()=>{
     console.log('Server on port', app.get('port'))
 })
